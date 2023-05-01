@@ -24,6 +24,7 @@ kubectl port-forward --namespace default svc/dev-minio 9001:9001
 Go to browser localhost:9001
 
 helm repo add jenkins https://charts.jenkins.io
+
 helm repo update
 
 helm search repo jenkins
