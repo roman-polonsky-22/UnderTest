@@ -5,11 +5,7 @@ pipeline {
     }
 
     stages {
-        stage('SCM Checkout') {
-            steps {
-               // git 'https://github.com/roman-polonsky-22/UnderTest.git'
-            }
-        }
+        
         stage('Build docker image') {
             steps {
                 sh 'docker build -t rompolo/undertest:$BUILD_NUMBER .'
