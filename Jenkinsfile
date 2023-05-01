@@ -8,6 +8,7 @@ pipeline {
         
         stage('Build docker image') {
             steps {
+                cd 'UnderTest'
                 sh 'docker build -t rompolo/undertest:$BUILD_NUMBER .'
             }
         }
