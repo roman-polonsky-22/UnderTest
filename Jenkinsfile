@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('SCM Checkout') {
             steps {
-                git 'https://github.com/roman-polonsky-22/UnderTest.git'
+               // git 'https://github.com/roman-polonsky-22/UnderTest.git'
             }
         }
         stage('Build docker image') {
