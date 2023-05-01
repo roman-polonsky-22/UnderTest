@@ -7,6 +7,7 @@ k3d cluster create dev
 helm install dev oci://registry-1.docker.io/bitnamicharts/minio
 
 export ROOT_USER=$(kubectl get secret --namespace default dev-minio -o jsonpath="{.data.root-user}" | base64 -d)
+
 export ROOT_PASSWORD=$(kubectl get secret --namespace default dev-minio -o jsonpath="{.data.root-password}" | base64 -d)
 
 kubectl run --namespace default dev-minio-client \
