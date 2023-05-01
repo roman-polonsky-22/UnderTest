@@ -18,6 +18,7 @@ kubectl run --namespace default dev-minio-client \
      --image docker.io/bitnami/minio-client:2023.4.12-debian-11-r4 -- admin info minio
      
 echo "MinIO&reg; web URL: http://127.0.0.1:9001/minio"
+
 kubectl port-forward --namespace default svc/dev-minio 9001:9001
 
 Go to browser localhost:9001
