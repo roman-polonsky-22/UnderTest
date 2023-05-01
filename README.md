@@ -31,8 +31,12 @@ helm search repo jenkins
 helm install dev jenkins/jenkins
 
 1. Get your 'admin' user password by running:
+  
   kubectl exec --namespace default -it svc/dev1-jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
 2. Get the Jenkins URL to visit by running these commands in the same shell:
+  
   echo http://127.0.0.1:8080
+  
   kubectl --namespace default port-forward svc/dev1-jenkins 8080:8080
+  
   browser localhost:8080 to navigate to Jenkins
