@@ -19,8 +19,25 @@ on:
         type: string
 
 jobs:
-  print-tag:
+  upload:
     runs-on: self-hosted
     steps:
-      - name: Print the purpose of run
-        run: echo  ${{ inputs.tags }} purpose
+      - name: Create a file
+        run: echo "hello world" > my-file.txt
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact # NOTE: same artifact name
+          path: my-file.txt
+  upload-again:
+    needs: upload
+    runs-on: self-hosted
+    steps:
+      - name: Create a different file
+        run: echo "goodbye world" > my-file.txt
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact # NOTE: same artifact name
+          path: my-file.txt
+          overwrite: true
